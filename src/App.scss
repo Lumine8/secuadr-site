@@ -1,0 +1,152 @@
+/* Theme tokens */
+$brand: #02e5ff;
+$bg-dark: #0c1a24;
+$text: #eaf7ff;
+$muted: #8fb3c1;
+$radius: 14px;
+$shadow: 0 12px 32px rgba(2, 229, 255, 0.12);
+
+/* Opt-in to user color schemes */
+:root {
+  color-scheme: light dark;
+} /* enables proper UA colors for form controls, etc. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #{$bg-dark};
+    --fg: #{$text};
+    --muted: #{$muted};
+    --brand: #{$brand};
+  }
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #0b1520;
+    --fg: #f2fbff;
+    --muted: #9ec7d6;
+    --brand: #18e7ff;
+  }
+}
+
+/* App shell */
+html,
+body,
+#root {
+  height: 100%;
+}
+body {
+  margin: 0;
+  background: radial-gradient(
+      1200px 800px at 50% 15%,
+      rgba(2, 229, 255, 0.06),
+      transparent 65%
+    ),
+    var(--bg);
+  color: var(--fg);
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu,
+    Cantarell, Noto Sans, Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* Container + fluid spacing/typography with clamp() */
+#root {
+  max-width: clamp(320px, 92vw, 1120px);
+  margin: 0 auto;
+  padding: clamp(16px, 2.5vw, 32px);
+  text-align: left;
+}
+
+h1 {
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  margin: 0 0 8px;
+  font-size: clamp(28px, 5vw, 56px);
+}
+h2 {
+  font-size: clamp(22px, 3.2vw, 32px);
+  margin: 0 0 8px;
+}
+p {
+  font-size: clamp(15px, 1.8vw, 18px);
+  color: var(--fg);
+  opacity: 0.92;
+}
+
+/* Cards and utility elements */
+.card {
+  padding: clamp(16px, 2vw, 24px);
+  border: 1px solid rgba(2, 229, 255, 0.12);
+  border-radius: $radius;
+  background: rgba(6, 22, 30, 0.55);
+  box-shadow: $shadow;
+  backdrop-filter: blur(8px);
+}
+
+.read-the-docs {
+  color: var(--muted);
+}
+
+/* Logo */
+.logo {
+  height: clamp(56px, 8vw, 96px);
+  padding: clamp(8px, 1.4vw, 16px);
+  transition: filter 240ms ease, transform 240ms ease;
+  will-change: filter, transform;
+  filter: drop-shadow(0 0 0 transparent);
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2.2em rgba(2, 229, 255, 0.66));
+  transform: translateY(-1px) scale(1.02);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2.2em rgba(97, 218, 251, 0.7));
+}
+
+/* Optional spin (disabled for reduced motion) */
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin 20s linear infinite;
+  }
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  background: var(--brand);
+  color: #001118;
+  border-radius: $radius;
+  border: 0;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  box-shadow: $shadow;
+  cursor: pointer;
+  transition: transform 150ms ease, filter 150ms ease;
+}
+.btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+}
+.btn:active {
+  transform: translateY(0);
+}
+
+/* Link styling */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
