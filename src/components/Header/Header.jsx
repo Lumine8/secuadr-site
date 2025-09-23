@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Github, ExternalLink } from "lucide-react";
 import "./Header.scss";
+import logo from "../../assets/unnamed1.png"; // Updated path to logo image
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -37,17 +38,9 @@ const Header = () => {
           {/* Updated Logo with Images */}
           <Link to='/' className='header__logo' onClick={closeMenu}>
             {/* Full logo for larger screens */}
-            <img
-              src='/src/assets/unnamed1.png'
-              alt='SecuADR'
-              className='header__logo-full'
-            />
+            <img src={logo} alt='SecuADR' className='header__logo-full' />
             {/* Symbol only for mobile */}
-            <img
-              src='/src/assets/unnamed1.png'
-              alt='SecuADR'
-              className='header__logo-symbol'
-            />
+            <img src={logo} alt='SecuADR' className='header__logo-symbol' />
           </Link>
 
           <nav className={`header__nav ${isMenuOpen ? "open" : ""}`}>
