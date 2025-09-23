@@ -1,0 +1,277 @@
+// Import variables at the top
+@import "../../styles/variables.scss";
+
+.product-page {
+  // Hero Section - Clean and focused
+  .product-hero {
+    background: linear-gradient(
+      135deg,
+      #{$primary-blue} 0%,
+      #{$accent-blue} 100%
+    );
+    color: #{$white};
+    padding: #{$spacing-4xl} 0;
+    text-align: center;
+
+    @media (min-width: #{$desktop}) {
+      padding: 6rem 0;
+    }
+
+    h1 {
+      font-size: #{$font-4xl}; // Mobile
+      margin-bottom: #{$spacing-xl};
+      font-weight: 800;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+
+      @media (min-width: #{$tablet}) {
+        font-size: #{$font-5xl}; // Tablet+
+      }
+
+      @media (min-width: #{$desktop}) {
+        font-size: 3.5rem; // Desktop
+      }
+    }
+
+    p {
+      font-size: #{$font-lg};
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+
+      @media (min-width: #{$tablet}) {
+        font-size: #{$font-xl};
+      }
+    }
+  }
+
+  // Features Section - Simplified 3-card layout
+  .product-features {
+    padding: #{$spacing-4xl} 0;
+    background-color: #{$white};
+
+    @media (min-width: #{$desktop}) {
+      padding: 5rem 0;
+    }
+
+    h2 {
+      text-align: center;
+      color: #{$primary-blue};
+      font-size: #{$font-3xl};
+      margin-bottom: #{$spacing-4xl};
+
+      @media (min-width: #{$tablet}) {
+        font-size: #{$font-4xl};
+      }
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: 1fr; // Mobile: single column
+      gap: #{$spacing-xl};
+
+      @media (min-width: #{$tablet}) {
+        grid-template-columns: repeat(3, 1fr); // Desktop: 3 columns
+        gap: #{$spacing-2xl};
+      }
+    }
+
+    .feature-card {
+      text-align: center;
+      padding: #{$spacing-2xl};
+      background-color: #{$white};
+      border-radius: #{$radius-xl};
+      box-shadow: #{$shadow-sm};
+      border: 1px solid rgba(160, 174, 192, 0.1);
+      transition: all #{$transition-normal};
+
+      &:hover {
+        transform: translateY(-8px);
+        box-shadow: #{$shadow-lg};
+        border-color: rgba(49, 130, 206, 0.2);
+      }
+
+      .feature-icon {
+        font-size: 3rem;
+        margin-bottom: #{$spacing-lg};
+        display: block;
+      }
+
+      h3 {
+        color: #{$primary-blue};
+        font-size: #{$font-xl};
+        margin-bottom: #{$spacing-md};
+        font-weight: 600;
+
+        @media (min-width: #{$tablet}) {
+          font-size: #{$font-2xl};
+        }
+      }
+
+      p {
+        color: #{$medium-gray};
+        font-size: #{$font-base};
+        line-height: 1.6;
+        margin: 0;
+
+        @media (min-width: #{$tablet}) {
+          font-size: #{$font-lg};
+        }
+      }
+    }
+  }
+
+  // Specs Section - Clean table-like layout
+  .product-specs {
+    padding: #{$spacing-4xl} 0;
+    background-color: #{$light-gray};
+
+    @media (min-width: #{$desktop}) {
+      padding: 5rem 0;
+    }
+
+    h2 {
+      text-align: center;
+      color: #{$primary-blue};
+      font-size: #{$font-3xl};
+      margin-bottom: #{$spacing-4xl};
+
+      @media (min-width: #{$tablet}) {
+        font-size: #{$font-4xl};
+      }
+    }
+
+    .specs-grid {
+      display: grid;
+      grid-template-columns: 1fr; // Mobile: single column
+      gap: #{$spacing-2xl};
+      max-width: 900px;
+      margin: 0 auto;
+
+      @media (min-width: #{$tablet}) {
+        grid-template-columns: repeat(2, 1fr); // Desktop: 2 columns
+        gap: #{$spacing-3xl};
+      }
+    }
+
+    .spec-category {
+      background-color: #{$white};
+      border-radius: #{$radius-xl};
+      padding: #{$spacing-2xl};
+      box-shadow: #{$shadow-sm};
+
+      h3 {
+        color: #{$primary-blue};
+        font-size: #{$font-2xl};
+        margin-bottom: #{$spacing-xl};
+        text-align: center;
+        font-weight: 600;
+        padding-bottom: #{$spacing-md};
+        border-bottom: 2px solid #{$light-gray};
+      }
+
+      .spec-list {
+        display: flex;
+        flex-direction: column;
+        gap: #{$spacing-lg};
+      }
+
+      .spec-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: #{$spacing-md} 0;
+        border-bottom: 1px solid rgba(160, 174, 192, 0.1);
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        .spec-metric {
+          color: #{$dark-gray};
+          font-size: #{$font-base};
+          font-weight: 500;
+        }
+
+        .spec-value {
+          color: #{$accent-blue};
+          font-size: #{$font-base};
+          font-weight: 600;
+          font-family: #{$font-secondary};
+        }
+      }
+    }
+  }
+
+  // CTA Section - Simple and focused
+  .product-cta {
+    padding: #{$spacing-4xl} 0;
+    background-color: #{$white};
+    text-align: center;
+
+    @media (min-width: #{$desktop}) {
+      padding: 5rem 0;
+    }
+
+    h2 {
+      color: #{$primary-blue};
+      font-size: #{$font-3xl};
+      margin-bottom: #{$spacing-lg};
+
+      @media (min-width: #{$tablet}) {
+        font-size: #{$font-4xl};
+      }
+    }
+
+    p {
+      color: #{$medium-gray};
+      font-size: #{$font-lg};
+      margin-bottom: #{$spacing-2xl};
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+
+      @media (min-width: #{$tablet}) {
+        font-size: #{$font-xl};
+      }
+    }
+
+    .cta-buttons {
+      display: flex;
+      flex-direction: column; // Mobile: stack buttons
+      gap: #{$spacing-lg};
+      justify-content: center;
+      align-items: center;
+
+      @media (min-width: #{$tablet}) {
+        flex-direction: row; // Desktop: side by side
+        gap: #{$spacing-xl};
+      }
+
+      .btn {
+        min-width: 200px;
+
+        @media (min-width: #{$tablet}) {
+          min-width: 220px;
+        }
+      }
+    }
+  }
+
+  // Mobile optimizations
+  @media (max-width: #{$tablet}) {
+    .product-hero,
+    .product-features,
+    .product-specs,
+    .product-cta {
+      padding: #{$spacing-3xl} 0;
+    }
+
+    .feature-card,
+    .spec-category {
+      padding: #{$spacing-xl};
+    }
+  }
+}

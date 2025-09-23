@@ -1,0 +1,358 @@
+// Import variables at the top
+@import "../../styles/variables.scss";
+
+.hero {
+  position: relative;
+  min-height: 80vh; // Mobile-first - smaller height
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+
+  @media (min-width: #{$tablet}) {
+    min-height: 90vh; // Taller on tablet
+  }
+
+  @media (min-width: #{$desktop}) {
+    min-height: 100vh; // Full height on desktop
+  }
+
+  &__background {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+  }
+
+  &__gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(26, 54, 93, 0.05) 0%,
+      rgba(49, 130, 206, 0.1) 100%
+    );
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr; // Single column on mobile
+    gap: #{$spacing-3xl};
+    align-items: center;
+
+    @media (min-width: #{$desktop}) {
+      grid-template-columns: 1fr 1fr; // Two columns on desktop
+      gap: #{$spacing-4xl};
+    }
+  }
+
+  &__text {
+    text-align: center; // Center on mobile
+
+    @media (min-width: #{$desktop}) {
+      text-align: left; // Left align on desktop
+    }
+  }
+
+  &__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: #{$spacing-sm};
+    padding: #{$spacing-sm} #{$spacing-lg};
+    background-color: rgba(49, 130, 206, 0.1);
+    color: #{$accent-blue};
+    border-radius: #{$radius-full};
+    font-size: #{$font-sm};
+    font-weight: 600;
+    margin-bottom: #{$spacing-xl};
+    border: 1px solid rgba(49, 130, 206, 0.2);
+
+    @media (min-width: #{$tablet}) {
+      font-size: #{$font-base};
+      padding: #{$spacing-md} #{$spacing-xl};
+    }
+  }
+
+  &__title {
+    font-size: #{$font-4xl}; // Mobile size (30px)
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: #{$spacing-lg};
+    color: #{$primary-blue};
+
+    @media (min-width: #{$tablet}) {
+      font-size: #{$font-5xl}; // Tablet size (36px)
+      margin-bottom: #{$spacing-xl};
+    }
+
+    @media (min-width: #{$desktop}) {
+      font-size: 3.75rem; // Desktop size (60px)
+    }
+  }
+
+  &__highlight {
+    background: linear-gradient(135deg, #{$accent-blue}, #{$success-green});
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  &__description {
+    font-size: #{$font-lg}; // Mobile
+    line-height: 1.6;
+    margin-bottom: #{$spacing-2xl};
+    max-width: 100%;
+    color: #{$medium-gray};
+
+    @media (min-width: #{$tablet}) {
+      font-size: #{$font-xl}; // Larger on tablet+
+      max-width: 600px;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: column; // Stack on mobile
+    gap: #{$spacing-lg};
+    margin-bottom: #{$spacing-2xl};
+
+    @media (min-width: #{$tablet}) {
+      flex-direction: row; // Side by side on tablet+
+      justify-content: center;
+    }
+
+    @media (min-width: #{$desktop}) {
+      justify-content: flex-start; // Left align on desktop
+    }
+  }
+
+  &__trust {
+    &-text {
+      font-size: #{$font-sm};
+      color: #{$medium-gray};
+      margin-bottom: #{$spacing-md};
+    }
+  }
+
+  &__logos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: #{$spacing-md};
+    justify-content: center;
+
+    @media (min-width: #{$desktop}) {
+      justify-content: flex-start;
+    }
+  }
+
+  &__logo-item {
+    display: flex;
+    align-items: center;
+    gap: #{$spacing-xs};
+    padding: #{$spacing-xs} #{$spacing-md};
+    background-color: rgba(49, 130, 206, 0.1);
+    color: #{$accent-blue};
+    border-radius: #{$radius-md};
+    font-size: #{$font-xs};
+    font-weight: 500;
+
+    @media (min-width: #{$tablet}) {
+      font-size: #{$font-sm};
+      padding: #{$spacing-sm} #{$spacing-lg};
+    }
+  }
+
+  &__visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    order: -1; // Show visual first on mobile
+
+    @media (min-width: #{$desktop}) {
+      order: 0; // Normal order on desktop
+    }
+  }
+
+  &__demo-container {
+    position: relative;
+    max-width: 280px; // Smaller on mobile
+
+    @media (min-width: #{$tablet}) {
+      max-width: 320px; // Larger on tablet+
+    }
+  }
+
+  &__phone {
+    width: 100%;
+    height: 500px; // Smaller on mobile
+    background: linear-gradient(145deg, #f0f4f8, #e2e8f0);
+    border-radius: 25px;
+    padding: 16px;
+    box-shadow: #{$shadow-xl};
+
+    @media (min-width: #{$tablet}) {
+      height: 600px; // Taller on tablet+
+      padding: 20px;
+      border-radius: 30px;
+    }
+  }
+
+  &__screen {
+    width: 100%;
+    height: 100%;
+    background-color: #{$white};
+    border-radius: 15px;
+    padding: #{$spacing-lg};
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @media (min-width: #{$tablet}) {
+      padding: #{$spacing-xl};
+      border-radius: 20px;
+    }
+  }
+
+  &__gesture-area {
+    width: 160px;
+    height: 160px;
+    border: 2px dashed rgba(49, 130, 206, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: #{$spacing-lg};
+    position: relative;
+
+    @media (min-width: #{$tablet}) {
+      width: 200px;
+      height: 200px;
+      margin-bottom: #{$spacing-xl};
+    }
+  }
+
+  &__gesture-path {
+    width: 80%;
+    height: 80%;
+  }
+
+  &__animated-path {
+    stroke-dasharray: 400;
+    stroke-dashoffset: 400;
+    animation: drawPath 3s ease-in-out infinite;
+  }
+
+  &__auth-status {
+    display: flex;
+    align-items: center;
+    gap: #{$spacing-sm};
+    color: #{$success-green};
+    font-weight: 600;
+    font-size: #{$font-sm};
+
+    @media (min-width: #{$tablet}) {
+      font-size: #{$font-base};
+    }
+  }
+
+  &__status-icon {
+    width: 20px;
+    height: 20px;
+    background-color: #{$success-green};
+    color: #{$white};
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: #{$font-xs};
+
+    @media (min-width: #{$tablet}) {
+      width: 24px;
+      height: 24px;
+      font-size: #{$font-sm};
+    }
+  }
+
+  &__stats {
+    position: absolute;
+    top: -15px;
+    right: -30px;
+    background-color: #{$white};
+    padding: #{$spacing-lg};
+    border-radius: #{$radius-xl};
+    box-shadow: #{$shadow-lg};
+    min-width: 180px;
+
+    @media (max-width: #{$tablet}) {
+      position: relative;
+      top: #{$spacing-lg};
+      right: 0;
+      margin: 0 auto;
+      max-width: 200px;
+    }
+
+    @media (min-width: #{$desktop}) {
+      top: -20px;
+      right: -50px;
+      min-width: 200px;
+    }
+  }
+
+  &__stat {
+    display: flex;
+    align-items: center;
+    gap: #{$spacing-md};
+
+    &-icon {
+      width: 35px;
+      height: 35px;
+      background-color: rgba(49, 130, 206, 0.1);
+      color: #{$accent-blue};
+      border-radius: #{$radius-lg};
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      @media (min-width: #{$tablet}) {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    &-content {
+      // Add this wrapper styling
+    }
+
+    &-value {
+      font-size: #{$font-xl}; // Mobile
+      font-weight: 700;
+      color: #{$primary-blue};
+      display: block;
+
+      @media (min-width: #{$tablet}) {
+        font-size: #{$font-2xl}; // Larger on tablet+
+      }
+    }
+
+    &-label {
+      font-size: #{$font-xs};
+      color: #{$medium-gray};
+      display: block;
+
+      @media (min-width: #{$tablet}) {
+        font-size: #{$font-sm};
+      }
+    }
+  }
+}
+
+@keyframes drawPath {
+  0% {
+    stroke-dashoffset: 400;
+  }
+  50% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -400;
+  }
+}

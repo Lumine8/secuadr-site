@@ -1,0 +1,596 @@
+// Import variables at the top
+@import "../../styles/variables.scss";
+
+.security-page {
+  // Hero Section with Security-focused Design
+  .security-hero {
+    background: linear-gradient(
+      135deg,
+      #{$primary-blue} 0%,
+      #1e40af 30%,
+      #{$secondary-blue} 70%,
+      #1f2937 100%
+    );
+    color: #{$white};
+    padding: #{$spacing-4xl} 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+
+    @media (min-width: #{$tablet}) {
+      padding: #{$spacing-4xl} 0;
+    }
+
+    @media (min-width: #{$desktop}) {
+      padding: 6rem 0;
+    }
+
+    // Add security-themed background elements
+    &::before {
+      content: "";
+      position: absolute;
+      top: -20%;
+      right: -10%;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(
+        circle,
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(255, 255, 255, 0.05) 50%,
+        transparent 100%
+      );
+      border-radius: 50%;
+      animation: securityPulse 8s ease-in-out infinite;
+
+      @media (min-width: #{$desktop}) {
+        width: 500px;
+        height: 500px;
+      }
+    }
+
+    &::after {
+      content: "🛡️";
+      position: absolute;
+      bottom: 10%;
+      left: 5%;
+      font-size: 4rem;
+      opacity: 0.1;
+      animation: float 6s ease-in-out infinite;
+
+      @media (min-width: #{$desktop}) {
+        font-size: 6rem;
+        left: 10%;
+      }
+    }
+
+    h1 {
+      font-size: #{$font-4xl}; // Mobile
+      margin-bottom: #{$spacing-lg};
+      font-weight: 800;
+      position: relative;
+      z-index: 1;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+
+      @media (min-width: #{$tablet}) {
+        font-size: #{$font-5xl}; // Tablet+
+      }
+
+      @media (min-width: #{$desktop}) {
+        font-size: 4rem; // Desktop
+      }
+
+      // Add security icon before title
+      &::before {
+        content: "🔒";
+        display: block;
+        font-size: #{$font-3xl};
+        margin-bottom: #{$spacing-md};
+
+        @media (min-width: #{$tablet}) {
+          font-size: #{$font-4xl};
+        }
+      }
+    }
+
+    p {
+      font-size: #{$font-lg}; // Mobile
+      opacity: 0.9;
+      max-width: 100%;
+      margin: 0 auto;
+      line-height: 1.6;
+      position: relative;
+      z-index: 1;
+
+      @media (min-width: #{$tablet}) {
+        font-size: #{$font-xl}; // Tablet+
+        max-width: 700px;
+      }
+    }
+  }
+
+  // Security Features Section
+  .security-features {
+    padding: #{$spacing-4xl} 0;
+    background: linear-gradient(to bottom, #{$white} 0%, #{$light-gray} 100%);
+    position: relative;
+
+    @media (min-width: #{$desktop}) {
+      padding: 5rem 0;
+    }
+
+    // Add subtle pattern overlay
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0l-8 8 8 8V12h28v2H36zM2 18h28v2H2v-2zm0 8h28v2H2v-2zm0 8h28v2H2v-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+
+    h2 {
+      text-align: center;
+      color: #{$primary-blue};
+      font-size: #{$font-3xl}; // Mobile
+      margin-bottom: #{$spacing-3xl};
+      font-weight: 700;
+      position: relative;
+      z-index: 1;
+
+      @media (min-width: #{$tablet}) {
+        font-size: #{$font-4xl}; // Tablet+
+        margin-bottom: #{$spacing-4xl};
+      }
+
+      // Add decorative underline
+      &::after {
+        content: "";
+        display: block;
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(90deg, #{$accent-blue}, #{$success-green});
+        margin: #{$spacing-lg} auto 0;
+        border-radius: #{$radius-full};
+      }
+    }
+
+    .security-grid {
+      display: grid;
+      grid-template-columns: 1fr; // Mobile: single column
+      gap: #{$spacing-xl};
+      position: relative;
+      z-index: 1;
+
+      @media (min-width: #{$tablet}) {
+        grid-template-columns: repeat(2, 1fr); // Tablet: 2 columns
+        gap: #{$spacing-2xl};
+      }
+
+      @media (min-width: #{$desktop}) {
+        grid-template-columns: repeat(3, 1fr); // Desktop: 3 columns
+      }
+    }
+
+    .security-card {
+      background-color: #{$white};
+      border-radius: #{$radius-2xl};
+      padding: #{$spacing-xl}; // Mobile
+      box-shadow: #{$shadow-md};
+      border: 2px solid transparent;
+      transition: all #{$transition-normal};
+      position: relative;
+      overflow: hidden;
+
+      @media (min-width: #{$tablet}) {
+        padding: #{$spacing-2xl}; // Tablet+
+      }
+
+      // Security-themed gradient accent
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(
+          90deg,
+          #{$accent-blue},
+          #6366f1,
+          #{$success-green}
+        );
+        transform: scaleX(0);
+        transition: transform #{$transition-normal};
+        transform-origin: left;
+      }
+
+      &:hover {
+        transform: translateY(-12px);
+        box-shadow: #{$shadow-xl};
+        border-color: rgba(49, 130, 206, 0.3);
+
+        &::before {
+          transform: scaleX(1);
+        }
+
+        .security-icon {
+          transform: scale(1.1);
+          background: linear-gradient(135deg, #{$accent-blue}, #6366f1);
+        }
+      }
+
+      // Staggered animation on load
+      &:nth-child(1) {
+        animation: slideInUp 0.6s ease-out 0.1s both;
+      }
+      &:nth-child(2) {
+        animation: slideInUp 0.6s ease-out 0.2s both;
+      }
+      &:nth-child(3) {
+        animation: slideInUp 0.6s ease-out 0.3s both;
+      }
+      &:nth-child(4) {
+        animation: slideInUp 0.6s ease-out 0.4s both;
+      }
+      &:nth-child(5) {
+        animation: slideInUp 0.6s ease-out 0.5s both;
+      }
+      &:nth-child(6) {
+        animation: slideInUp 0.6s ease-out 0.6s both;
+      }
+
+      .security-icon {
+        width: 70px;
+        height: 70px;
+        background: linear-gradient(135deg, #{$accent-blue}, #{$success-green});
+        color: #{$white};
+        border-radius: #{$radius-2xl};
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto #{$spacing-xl};
+        transition: all #{$transition-normal};
+        box-shadow: 0 8px 20px rgba(49, 130, 206, 0.3);
+
+        @media (min-width: #{$tablet}) {
+          width: 80px;
+          height: 80px;
+        }
+      }
+
+      h3 {
+        color: #{$primary-blue};
+        font-size: #{$font-xl}; // Mobile
+        margin-bottom: #{$spacing-md};
+        font-weight: 700;
+        text-align: center;
+
+        @media (min-width: #{$tablet}) {
+          font-size: #{$font-2xl}; // Tablet+
+        }
+      }
+
+      p {
+        color: #{$medium-gray};
+        font-size: #{$font-base}; // Mobile
+        line-height: 1.6;
+        text-align: center;
+        margin: 0;
+
+        @media (min-width: #{$tablet}) {
+          font-size: #{$font-lg}; // Tablet+
+          line-height: 1.7;
+        }
+      }
+    }
+  }
+
+  // Compliance Section
+  .compliance {
+    padding: #{$spacing-4xl} 0;
+    background: linear-gradient(
+      135deg,
+      #{$primary-blue} 0%,
+      #{$secondary-blue} 100%
+    );
+    color: #{$white};
+    position: relative;
+    overflow: hidden;
+
+    @media (min-width: #{$desktop}) {
+      padding: 5rem 0;
+    }
+
+    // Add decorative elements
+    &::before {
+      content: "";
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 200px;
+      height: 200px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 50%;
+      animation: rotate 20s linear infinite;
+
+      @media (min-width: #{$desktop}) {
+        width: 400px;
+        height: 400px;
+        top: -100px;
+        right: -100px;
+      }
+    }
+
+    &::after {
+      content: "⚡";
+      position: absolute;
+      bottom: 20%;
+      left: 10%;
+      font-size: 3rem;
+      opacity: 0.1;
+      animation: pulse 4s ease-in-out infinite;
+
+      @media (min-width: #{$desktop}) {
+        font-size: 5rem;
+      }
+    }
+
+    h2 {
+      text-align: center;
+      font-size: #{$font-3xl}; // Mobile
+      margin-bottom: #{$spacing-3xl};
+      font-weight: 700;
+      position: relative;
+      z-index: 1;
+
+      @media (min-width: #{$tablet}) {
+        font-size: #{$font-4xl}; // Tablet+
+        margin-bottom: #{$spacing-4xl};
+      }
+
+      // Add crown icon
+      &::before {
+        content: "👑";
+        display: block;
+        font-size: #{$font-2xl};
+        margin-bottom: #{$spacing-md};
+
+        @media (min-width: #{$tablet}) {
+          font-size: #{$font-3xl};
+        }
+      }
+    }
+
+    .compliance-grid {
+      display: grid;
+      grid-template-columns: 1fr; // Mobile: single column
+      gap: #{$spacing-xl};
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+
+      @media (min-width: #{$tablet}) {
+        grid-template-columns: repeat(3, 1fr); // Desktop: 3 columns
+        gap: #{$spacing-2xl};
+      }
+    }
+
+    .compliance-item {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: #{$radius-xl};
+      padding: #{$spacing-2xl};
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all #{$transition-normal};
+
+      &:hover {
+        transform: translateY(-8px);
+        background: rgba(255, 255, 255, 0.15);
+        border-color: rgba(255, 255, 255, 0.3);
+      }
+
+      h4 {
+        font-size: #{$font-xl}; // Mobile
+        margin-bottom: #{$spacing-md};
+        font-weight: 700;
+
+        @media (min-width: #{$tablet}) {
+          font-size: #{$font-2xl}; // Tablet+
+        }
+
+        // Add badge icons
+        &::before {
+          display: block;
+          font-size: #{$font-3xl};
+          margin-bottom: #{$spacing-sm};
+        }
+      }
+
+      // Specific icons for each compliance item
+      &:nth-child(1) h4::before {
+        content: "🏆";
+      }
+      &:nth-child(2) h4::before {
+        content: "🇪🇺";
+      }
+      &:nth-child(3) h4::before {
+        content: "📋";
+      }
+
+      p {
+        opacity: 0.9;
+        font-size: #{$font-base}; // Mobile
+        margin: 0;
+        line-height: 1.6;
+
+        @media (min-width: #{$tablet}) {
+          font-size: #{$font-lg}; // Tablet+
+        }
+      }
+    }
+  }
+
+  // Mobile optimizations
+  @media (max-width: #{$tablet}) {
+    .security-hero,
+    .security-features,
+    .compliance {
+      padding: #{$spacing-3xl} 0;
+    }
+
+    .security-card {
+      padding: #{$spacing-lg};
+    }
+
+    .compliance-item {
+      padding: #{$spacing-xl};
+    }
+  }
+
+  // Animation keyframes
+  @keyframes securityPulse {
+    0%,
+    100% {
+      opacity: 0.3;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.6;
+      transform: scale(1.1);
+    }
+  }
+
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 0.1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.3;
+      transform: scale(1.2);
+    }
+  }
+
+  // Performance optimizations
+  @media (prefers-reduced-motion: reduce) {
+    .security-hero::before,
+    .security-hero::after,
+    .compliance::before,
+    .compliance::after,
+    .security-card {
+      animation: none !important;
+    }
+
+    .security-card {
+      opacity: 1;
+      transform: none;
+
+      &:hover {
+        transform: none;
+      }
+    }
+  }
+
+  // High contrast mode
+  @media (prefers-contrast: high) {
+    .security-hero {
+      background: #{$primary-blue} !important;
+
+      &::before,
+      &::after {
+        display: none;
+      }
+    }
+
+    .security-features::before,
+    .compliance::before,
+    .compliance::after {
+      display: none;
+    }
+
+    .security-card,
+    .compliance-item {
+      border: 2px solid #{$medium-gray};
+    }
+  }
+
+  // Print styles
+  @media print {
+    .security-hero,
+    .compliance {
+      background: none !important;
+      color: #{$dark-gray} !important;
+
+      &::before,
+      &::after {
+        display: none !important;
+      }
+    }
+
+    .security-features,
+    .compliance {
+      padding: #{$spacing-lg} 0 !important;
+    }
+
+    .security-card,
+    .compliance-item {
+      break-inside: avoid;
+      box-shadow: none !important;
+      border: 1px solid #{$medium-gray} !important;
+    }
+  }
+
+  // Focus management for accessibility
+  .security-card:focus,
+  .compliance-item:focus {
+    outline: 2px solid #{$accent-blue};
+    outline-offset: 2px;
+  }
+}
+
+// Loading states
+.security-page {
+  &.loading {
+    .security-card,
+    .compliance-item {
+      opacity: 0.6;
+      pointer-events: none;
+    }
+  }
+}

@@ -1,0 +1,97 @@
+// Import variables at the top
+@import "../../styles/variables.scss";
+
+.contact {
+  background-color: #{$white};
+
+  &__header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto #{$spacing-4xl};
+  }
+
+  &__subtitle {
+    font-size: #{$font-xl};
+    color: #{$medium-gray};
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: #{$spacing-4xl};
+
+    @media (max-width: #{$desktop}) {
+      grid-template-columns: 1fr;
+      gap: #{$spacing-3xl};
+    }
+  }
+
+  &__info-item {
+    display: flex;
+    gap: #{$spacing-lg};
+    align-items: flex-start;
+    margin-bottom: #{$spacing-2xl};
+
+    h4 {
+      color: #{$primary-blue};
+      margin-bottom: #{$spacing-sm};
+    }
+
+    p {
+      color: #{$medium-gray};
+      margin: 0;
+
+      &:first-of-type {
+        font-weight: 500;
+      }
+    }
+  }
+
+  &__icon {
+    color: #{$accent-blue};
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+
+  &__form-container {
+    background-color: #{$light-gray};
+    padding: #{$spacing-2xl};
+    border-radius: #{$radius-xl};
+  }
+
+  &__form-group {
+    margin-bottom: #{$spacing-xl};
+
+    label {
+      display: block;
+      margin-bottom: #{$spacing-sm};
+      font-weight: 500;
+      color: #{$primary-blue};
+    }
+  }
+
+  &__input,
+  &__textarea {
+    width: 100%;
+    padding: #{$spacing-md};
+    border: 2px solid rgba(160, 174, 192, 0.3);
+    border-radius: #{$radius-lg};
+    font-size: #{$font-base};
+    font-family: #{$font-primary};
+    transition: border-color #{$transition-fast};
+
+    &:focus {
+      outline: none;
+      border-color: #{$accent-blue};
+    }
+  }
+
+  &__textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  button[type="submit"] {
+    width: 100%;
+  }
+}

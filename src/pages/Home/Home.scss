@@ -1,0 +1,923 @@
+// Import variables at the top
+@import "../../styles/variables.scss";
+
+.home {
+  // Home page wrapper - no specific styles needed here
+  // All styling is handled by individual component sections
+
+  // Override component spacing for better page flow
+  .hero {
+    margin-bottom: 0;
+  }
+
+  .partnership-section {
+    margin-bottom: 0;
+  }
+
+  .features {
+    margin-bottom: 0;
+  }
+
+  .demo {
+    margin-bottom: 0;
+  }
+
+  .testimonials {
+    margin-bottom: 0;
+  }
+
+  .pricing {
+    margin-bottom: 0;
+  }
+
+  .contact {
+    margin-bottom: 0;
+  }
+
+  // Add consistent section spacing throughout the home page
+  .section {
+    padding: #{$spacing-3xl} 0; // Mobile
+
+    @media (min-width: #{$tablet}) {
+      padding: #{$spacing-4xl} 0; // Tablet+
+    }
+
+    @media (min-width: #{$desktop}) {
+      padding: 5rem 0; // Desktop - even more generous
+    }
+  }
+
+  // Smooth transitions between sections
+  .section + .section {
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(160, 174, 192, 0.2) 50%,
+        transparent 100%
+      );
+    }
+  }
+
+  // Special styling for alternating section backgrounds
+  .features,
+  .pricing {
+    background-color: #{$light-gray};
+    position: relative;
+
+    // Add subtle pattern overlay
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Ccircle cx='7' cy='7' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+  }
+
+  .hero,
+  .demo,
+  .testimonials,
+  .contact {
+    background-color: #{$white};
+  }
+
+  // Partnership Section - NEW OKTA SECTION
+  .partnership-section {
+    padding: #{$spacing-4xl} 0;
+    background: linear-gradient(
+      135deg,
+      #{$white} 0%,
+      rgba(49, 130, 206, 0.05) 25%,
+      rgba(56, 161, 105, 0.05) 75%,
+      #{$light-gray} 100%
+    );
+    position: relative;
+    overflow: hidden;
+
+    @media (min-width: #{$tablet}) {
+      padding: #{$spacing-4xl} 0;
+    }
+
+    @media (min-width: #{$desktop}) {
+      padding: 5rem 0;
+    }
+
+    // Add subtle animated background elements
+    &::before {
+      content: "";
+      position: absolute;
+      top: -20%;
+      right: -10%;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(
+        circle,
+        rgba(49, 130, 206, 0.1) 0%,
+        rgba(56, 161, 105, 0.05) 50%,
+        transparent 100%
+      );
+      border-radius: 50%;
+      animation: partnershipFloat 12s ease-in-out infinite;
+
+      @media (min-width: #{$desktop}) {
+        width: 500px;
+        height: 500px;
+      }
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -15%;
+      left: -5%;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(
+        circle,
+        rgba(56, 161, 105, 0.08) 0%,
+        transparent 70%
+      );
+      border-radius: 50%;
+      animation: partnershipFloat 10s ease-in-out infinite reverse;
+
+      @media (min-width: #{$desktop}) {
+        width: 400px;
+        height: 400px;
+      }
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: #{$spacing-3xl};
+      align-items: center;
+      position: relative;
+      z-index: 1;
+
+      @media (min-width: #{$desktop}) {
+        grid-template-columns: 2fr 1fr;
+        gap: #{$spacing-4xl};
+      }
+    }
+
+    .partnership-announcement {
+      text-align: center;
+
+      @media (min-width: #{$desktop}) {
+        text-align: left;
+      }
+    }
+
+    .partnership-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: #{$spacing-sm};
+      background: linear-gradient(135deg, #{$accent-blue}, #{$success-green});
+      color: #{$white};
+      padding: #{$spacing-sm} #{$spacing-lg};
+      border-radius: #{$radius-full};
+      font-size: #{$font-sm};
+      font-weight: 700;
+      margin-bottom: #{$spacing-xl};
+      box-shadow: 0 4px 12px rgba(49, 130, 206, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.2);
+      animation: partnershipPulse 3s ease-in-out infinite;
+      transition: all #{$transition-normal};
+
+      @media (min-width: #{$tablet}) {
+        font-size: #{$font-base};
+        padding: #{$spacing-md} #{$spacing-xl};
+      }
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(49, 130, 206, 0.4),
+          0 0 0 1px rgba(255, 255, 255, 0.3);
+      }
+
+      .badge-icon {
+        font-size: #{$font-lg};
+        animation: rotate 4s linear infinite;
+      }
+
+      .badge-text {
+        font-weight: 800;
+        letter-spacing: 0.5px;
+      }
+    }
+
+    h2 {
+      color: #{$primary-blue};
+      font-size: #{$font-3xl};
+      margin-bottom: #{$spacing-lg};
+      font-weight: 800;
+      line-height: 1.2;
+
+      @media (min-width: #{$tablet}) {
+        font-size: #{$font-4xl};
+      }
+
+      @media (min-width: #{$desktop}) {
+        font-size: 3.5rem;
+      }
+    }
+
+    p {
+      color: #{$dark-gray};
+      font-size: #{$font-base};
+      line-height: 1.7;
+      margin-bottom: #{$spacing-2xl};
+      max-width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+
+      @media (min-width: #{$tablet}) {
+        font-size: #{$font-lg};
+        max-width: 600px;
+      }
+
+      @media (min-width: #{$desktop}) {
+        margin-left: 0;
+        margin-right: 0;
+        max-width: none;
+      }
+
+      strong {
+        color: #{$accent-blue};
+        font-weight: 700;
+        background: linear-gradient(135deg, #{$accent-blue}, #{$success-green});
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+    }
+
+    .partnership-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: #{$spacing-lg};
+      max-width: 400px;
+      margin: 0 auto;
+
+      @media (min-width: #{$desktop}) {
+        margin: 0;
+        max-width: none;
+      }
+
+      .stat-item {
+        text-align: center;
+        padding: #{$spacing-lg};
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(10px);
+        border-radius: #{$radius-xl};
+        border: 1px solid rgba(49, 130, 206, 0.1);
+        transition: all #{$transition-normal};
+
+        &:hover {
+          transform: translateY(-4px);
+          background: rgba(255, 255, 255, 0.9);
+          box-shadow: #{$shadow-lg};
+        }
+
+        .stat-value {
+          font-size: #{$font-xl};
+          font-weight: 800;
+          background: linear-gradient(
+            135deg,
+            #{$accent-blue},
+            #{$success-green}
+          );
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          margin-bottom: #{$spacing-xs};
+
+          @media (min-width: #{$tablet}) {
+            font-size: #{$font-2xl};
+          }
+        }
+
+        .stat-label {
+          font-size: #{$font-xs};
+          color: #{$medium-gray};
+          font-weight: 600;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+
+          @media (min-width: #{$tablet}) {
+            font-size: #{$font-sm};
+          }
+        }
+      }
+    }
+
+    .partnership-visual {
+      display: flex;
+      justify-content: center;
+      perspective: 1000px;
+
+      .partnership-card {
+        background: #{$white};
+        border-radius: #{$radius-2xl};
+        padding: #{$spacing-2xl};
+        box-shadow: #{$shadow-xl}, 0 0 0 1px rgba(49, 130, 206, 0.1);
+        border: 2px solid transparent;
+        text-align: center;
+        transform: rotate(-2deg);
+        transition: all #{$transition-normal};
+        position: relative;
+        overflow: hidden;
+
+        @media (min-width: #{$tablet}) {
+          padding: #{$spacing-3xl};
+        }
+
+        // Add gradient overlay
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 4px;
+          background: linear-gradient(
+            90deg,
+            #{$accent-blue},
+            #{$success-green}
+          );
+        }
+
+        &:hover {
+          transform: rotate(0deg) scale(1.05);
+          border-color: rgba(49, 130, 206, 0.2);
+          box-shadow: 0 20px 40px rgba(49, 130, 206, 0.2),
+            0 0 0 1px rgba(49, 130, 206, 0.2);
+        }
+
+        .okta-badge {
+          position: relative;
+          z-index: 1;
+
+          .badge-icon-large {
+            font-size: 3rem;
+            margin-bottom: #{$spacing-md};
+            display: block;
+            animation: bounce 2s ease-in-out infinite;
+
+            @media (min-width: #{$tablet}) {
+              font-size: 4rem;
+            }
+          }
+
+          h4 {
+            color: #{$primary-blue};
+            font-size: #{$font-2xl};
+            margin-bottom: #{$spacing-xs};
+            font-weight: 700;
+
+            @media (min-width: #{$tablet}) {
+              font-size: #{$font-3xl};
+            }
+          }
+
+          p {
+            color: #{$medium-gray};
+            font-size: #{$font-lg};
+            margin-bottom: #{$spacing-lg};
+            font-weight: 600;
+
+            @media (min-width: #{$tablet}) {
+              font-size: #{$font-xl};
+            }
+          }
+
+          .tier-badge {
+            background: linear-gradient(
+              135deg,
+              #{$accent-blue},
+              #{$success-green}
+            );
+            color: #{$white};
+            padding: #{$spacing-sm} #{$spacing-lg};
+            border-radius: #{$radius-full};
+            font-size: #{$font-sm};
+            font-weight: 700;
+            display: inline-block;
+            box-shadow: 0 4px 12px rgba(49, 130, 206, 0.3);
+
+            @media (min-width: #{$tablet}) {
+              font-size: #{$font-base};
+              padding: #{$spacing-md} #{$spacing-xl};
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Update hero section for partnership integration
+  .hero {
+    .hero__badge {
+      display: flex;
+      align-items: center;
+      gap: #{$spacing-sm};
+
+      svg {
+        animation: sparkle 2s ease-in-out infinite;
+      }
+    }
+
+    .hero__logo-item {
+      display: flex;
+      align-items: center;
+      gap: #{$spacing-xs};
+
+      &:first-child svg {
+        animation: rotate 8s linear infinite;
+      }
+    }
+  }
+
+  // Page-specific component overrides for better home page flow
+
+  // Hero section adjustments
+  .hero {
+    min-height: 85vh; // Slightly shorter on mobile
+
+    @media (min-width: #{$tablet}) {
+      min-height: 90vh;
+    }
+
+    @media (min-width: #{$desktop}) {
+      min-height: 100vh;
+    }
+
+    // Add subtle animation to hero background
+    .hero__background {
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(
+          ellipse at center,
+          rgba(49, 130, 206, 0.1) 0%,
+          rgba(49, 130, 206, 0.05) 50%,
+          transparent 100%
+        );
+        animation: heroPulse 8s ease-in-out infinite;
+      }
+    }
+  }
+
+  // Features section enhancements
+  .features {
+    .features__grid {
+      // Add staggered animation on scroll (can be enhanced with JS)
+      .features__card {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 0.6s ease-out forwards;
+
+        &:nth-child(1) {
+          animation-delay: 0.1s;
+        }
+        &:nth-child(2) {
+          animation-delay: 0.2s;
+        }
+        &:nth-child(3) {
+          animation-delay: 0.3s;
+        }
+        &:nth-child(4) {
+          animation-delay: 0.4s;
+        }
+        &:nth-child(5) {
+          animation-delay: 0.5s;
+        }
+        &:nth-child(6) {
+          animation-delay: 0.6s;
+        }
+      }
+    }
+  }
+
+  // Demo section styling
+  .demo {
+    position: relative;
+    overflow: hidden;
+
+    // Add decorative elements
+    &::before {
+      content: "";
+      position: absolute;
+      top: 10%;
+      right: -10%;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(
+        circle,
+        rgba(49, 130, 206, 0.1) 0%,
+        transparent 70%
+      );
+      border-radius: 50%;
+      animation: demoFloat 6s ease-in-out infinite;
+
+      @media (min-width: #{$desktop}) {
+        width: 400px;
+        height: 400px;
+        right: -15%;
+      }
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 20%;
+      left: -5%;
+      width: 150px;
+      height: 150px;
+      background: radial-gradient(
+        circle,
+        rgba(56, 161, 105, 0.08) 0%,
+        transparent 70%
+      );
+      border-radius: 50%;
+      animation: demoFloat 8s ease-in-out infinite reverse;
+
+      @media (min-width: #{$desktop}) {
+        width: 300px;
+        height: 300px;
+        left: -10%;
+      }
+    }
+  }
+
+  // Testimonials section
+  .testimonials {
+    .testimonials__grid {
+      .testimonials__card {
+        // Subtle animation for testimonial cards
+        transition: all #{$transition-normal};
+
+        &:hover {
+          transform: translateY(-8px);
+          box-shadow: #{$shadow-xl};
+        }
+      }
+    }
+  }
+
+  // Pricing section enhancements
+  .pricing {
+    .pricing__grid {
+      .pricing__card {
+        transition: all #{$transition-normal};
+
+        &:not(.pricing__card--popular):hover {
+          transform: translateY(-4px);
+          box-shadow: #{$shadow-xl};
+        }
+
+        &--popular {
+          // Add subtle glow effect to popular plan
+          box-shadow: #{$shadow-xl}, 0 0 0 1px rgba(49, 130, 206, 0.1),
+            0 0 20px rgba(49, 130, 206, 0.1);
+        }
+      }
+    }
+  }
+
+  // Contact section
+  .contact {
+    background: linear-gradient(
+      135deg,
+      #{$white} 0%,
+      rgba(247, 250, 252, 0.8) 100%
+    );
+
+    .contact__form-container {
+      // Add subtle shadow and border to form
+      box-shadow: #{$shadow-lg};
+      border: 1px solid rgba(160, 174, 192, 0.1);
+      transition: all #{$transition-normal};
+
+      &:hover {
+        box-shadow: #{$shadow-xl};
+        border-color: rgba(49, 130, 206, 0.2);
+      }
+    }
+  }
+
+  // Mobile-specific adjustments
+  @media (max-width: #{$tablet}) {
+    .section {
+      padding: #{$spacing-2xl} 0; // Tighter spacing on mobile
+    }
+
+    .partnership-section {
+      padding: #{$spacing-3xl} 0;
+
+      .container {
+        gap: #{$spacing-2xl};
+      }
+
+      .partnership-stats {
+        grid-template-columns: 1fr;
+        gap: #{$spacing-md};
+        max-width: 280px;
+
+        .stat-item {
+          padding: #{$spacing-md};
+        }
+      }
+
+      .partnership-card {
+        transform: none !important;
+        padding: #{$spacing-xl};
+
+        &:hover {
+          transform: scale(1.02) !important;
+        }
+
+        .okta-badge {
+          .badge-icon-large {
+            font-size: 2.5rem;
+          }
+        }
+      }
+    }
+
+    // Reduce hero height on very small screens
+    @media (max-height: 600px) {
+      .hero {
+        min-height: 70vh;
+      }
+    }
+  }
+
+  // Animation keyframes
+  @keyframes partnershipPulse {
+    0%,
+    100% {
+      box-shadow: 0 4px 12px rgba(49, 130, 206, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.2);
+    }
+    50% {
+      box-shadow: 0 6px 20px rgba(49, 130, 206, 0.5),
+        0 0 0 1px rgba(255, 255, 255, 0.3);
+    }
+  }
+
+  @keyframes partnershipFloat {
+    0%,
+    100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    33% {
+      transform: translateY(-15px) rotate(1deg);
+    }
+    66% {
+      transform: translateY(-5px) rotate(-1deg);
+    }
+  }
+
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes bounce {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes sparkle {
+    0%,
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.7;
+      transform: scale(1.2);
+    }
+  }
+
+  @keyframes heroPulse {
+    0%,
+    100% {
+      opacity: 0.3;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.6;
+      transform: scale(1.05);
+    }
+  }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes demoFloat {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  // Performance optimizations
+  @media (prefers-reduced-motion: reduce) {
+    // Disable animations for users who prefer reduced motion
+    .hero__background::after,
+    .demo::before,
+    .demo::after,
+    .features__card,
+    .partnership-badge,
+    .partnership-card,
+    .okta-badge .badge-icon-large {
+      animation: none !important;
+    }
+
+    .features__card {
+      opacity: 1;
+      transform: none;
+    }
+
+    .partnership-card {
+      transform: none !important;
+
+      &:hover {
+        transform: none !important;
+      }
+    }
+  }
+
+  // High contrast mode support
+  @media (prefers-contrast: high) {
+    .section + .section::before {
+      background: #{$medium-gray};
+      opacity: 0.3;
+    }
+
+    .features,
+    .pricing {
+      &::before {
+        display: none; // Remove subtle patterns in high contrast
+      }
+    }
+
+    .partnership-section::before,
+    .partnership-section::after {
+      display: none;
+    }
+  }
+
+  // Print styles
+  @media print {
+    .hero {
+      min-height: auto !important;
+      page-break-after: always;
+    }
+
+    .demo::before,
+    .demo::after,
+    .hero__background::after,
+    .partnership-section::before,
+    .partnership-section::after {
+      display: none !important;
+    }
+
+    .section {
+      padding: #{$spacing-lg} 0 !important;
+      page-break-inside: avoid;
+    }
+
+    .features,
+    .pricing {
+      background-color: transparent !important;
+
+      &::before {
+        display: none !important;
+      }
+    }
+
+    .partnership-section {
+      background: none !important;
+    }
+  }
+}
+
+// Scroll-based animations (can be enhanced with Intersection Observer)
+.home {
+  .section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease-out;
+
+    &.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    // Disable for users who prefer reduced motion
+    @media (prefers-reduced-motion: reduce) {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+}
+
+// Loading states (if implementing skeleton loading)
+.home {
+  &.loading {
+    .section {
+      opacity: 0.7;
+      pointer-events: none;
+    }
+  }
+}
+
+// Focus management for accessibility
+.home {
+  // Skip to content link (hidden by default)
+  .skip-to-content {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: #{$primary-blue};
+    color: #{$white};
+    padding: 8px;
+    text-decoration: none;
+    border-radius: #{$radius-md};
+    z-index: #{$z-modal};
+    transition: top 0.3s;
+
+    &:focus {
+      top: 6px;
+    }
+  }
+
+  // Improve focus indicators throughout the page
+  .btn:focus,
+  .contact__input:focus,
+  .contact__textarea:focus,
+  .partnership-card:focus {
+    outline: 2px solid #{$accent-blue};
+    outline-offset: 2px;
+  }
+}
+
+// RTL (Right-to-Left) support
+[dir="rtl"] .home {
+  .demo::before {
+    right: auto;
+    left: -10%;
+  }
+
+  .demo::after {
+    left: auto;
+    right: -5%;
+  }
+
+  .partnership-section::before {
+    right: auto;
+    left: -10%;
+  }
+
+  .partnership-section::after {
+    left: auto;
+    right: -5%;
+  }
+}

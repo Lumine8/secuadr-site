@@ -1,31 +1,35 @@
-// src/App.jsx
-import { Routes, Route, Navigate } from "react-router-dom";
-import Navbar from "./components/Navbar.jsx";
-import Footer from "./components/Footer.jsx";
-import Home from "./pages/Homes.jsx";
-import Product from "./pages/Products.jsx";
-// import Docs from "./pages/Docs.jsx";
-import Security from "./pages/Security.jsx";
-// import Contact from "./pages/Contact.jsx";
-// import Pricing from "./pages/Pricing.jsx";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
+import Home from "./pages/Home/Home"; // Updated paths if using folders
+import About from "./pages/About/About";
+import Product from "./pages/Product/Product";
+import Features from "./pages/Features/Features"; // New
+import Security from "./pages/Security/Security"; // New
+// import Pricing from "./pages/Pricing/Pricing"; // New (if you want a dedicated pricing page)
+import Documentation from "./pages/Documentation/Documentation";
 
-// import "./styles/_globals.scss";
-import "./App.scss";
-
-export default function App() {
+function App() {
   return (
-    <>
-      <Navbar />
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/product' element={<Product />} />
-        {/* <Route path='/docs' element={<Docs />} /> */}
-        <Route path='/security' element={<Security />} />
-        {/* <Route path='/pricing' element={<Pricing />} /> */}
-        {/* <Route path='/contact' element={<Contact />} /> */}
-        <Route path='*' element={<Navigate to='/' replace />} />
-      </Routes>
-      <Footer />
-    </>
+    <Router>
+      <div className='App'>
+        <Header />
+        <main>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/about' element={<About />} />
+            <Route path='/product' element={<Product />} />
+            <Route path='/features' element={<Features />} />
+            <Route path='/security' element={<Security />} />
+            {/* <Route path='/pricing' element={<Pricing />} /> */}
+            <Route path='/docs' element={<Documentation />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
   );
 }
+
+export default App;

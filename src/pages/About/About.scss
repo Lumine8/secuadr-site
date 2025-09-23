@@ -1,0 +1,80 @@
+// Import variables at the top
+@import "../../styles/variables.scss";
+
+.about-page {
+  .about-hero {
+    background: linear-gradient(
+      135deg,
+      #{$primary-blue} 0%,
+      #{$accent-blue} 100%
+    );
+    color: #{$white};
+    padding: #{$spacing-3xl} 0; // Mobile
+    text-align: center;
+
+    @media (min-width: #{$tablet}) {
+      padding: #{$spacing-4xl} 0; // Tablet+
+    }
+  }
+
+  .about-title {
+    font-size: #{$font-4xl}; // Mobile (30px)
+    margin-bottom: #{$spacing-lg};
+
+    @media (min-width: #{$tablet}) {
+      font-size: #{$font-5xl}; // Tablet+ (36px)
+    }
+
+    @media (min-width: #{$desktop}) {
+      font-size: 3.75rem; // Desktop (60px) - using direct value
+    }
+  }
+
+  .about-subtitle {
+    font-size: #{$font-lg}; // Mobile
+    opacity: 0.9;
+    max-width: 100%;
+    margin: 0 auto;
+
+    @media (min-width: #{$tablet}) {
+      font-size: #{$font-xl}; // Tablet+
+      max-width: 600px;
+    }
+  }
+
+  .about-content {
+    padding: #{$spacing-3xl} 0;
+
+    @media (min-width: #{$tablet}) {
+      padding: #{$spacing-4xl} 0;
+    }
+  }
+
+  .about-story,
+  .about-mission {
+    max-width: 800px;
+    margin: 0 auto #{$spacing-3xl};
+
+    h2 {
+      color: #{$primary-blue};
+      margin-bottom: #{$spacing-xl};
+      text-align: center;
+      font-size: #{$font-3xl}; // Mobile
+
+      @media (min-width: #{$tablet}) {
+        font-size: #{$font-4xl}; // Tablet+
+      }
+    }
+
+    p {
+      font-size: #{$font-base}; // Mobile
+      line-height: 1.7;
+      color: #{$dark-gray};
+
+      @media (min-width: #{$tablet}) {
+        font-size: #{$font-lg}; // Tablet+
+        line-height: 1.8;
+      }
+    }
+  }
+}

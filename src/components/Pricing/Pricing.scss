@@ -1,0 +1,121 @@
+@import "../../styles/variables.scss";
+.pricing {
+  background-color: #{$light-gray};
+
+  &__header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto #{$spacing-4xl};
+  }
+
+  &__subtitle {
+    font-size: #{$font-xl};
+    color: #{$medium-gray};
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: #{$spacing-xl};
+
+    @media (max-width: #{$desktop}) {
+      grid-template-columns: 1fr;
+      gap: #{$spacing-lg};
+    }
+  }
+
+  &__card {
+    background-color: #{$white};
+    border-radius: #{$radius-xl};
+    padding: #{$spacing-2xl};
+    position: relative;
+    transition: transform #{$transition-fast};
+
+    &:hover {
+      transform: translateY(-8px);
+    }
+
+    &--popular {
+      border: 2px solid #{$accent-blue};
+      transform: scale(1.05);
+
+      &:hover {
+        transform: scale(1.05) translateY(-8px);
+      }
+    }
+  }
+
+  &__badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #{$accent-blue};
+    color: #{$white};
+    padding: #{$spacing-sm} #{$spacing-lg};
+    border-radius: #{$radius-full};
+    font-size: #{$font-sm};
+    font-weight: 600;
+  }
+
+  &__name {
+    font-size: #{$font-2xl};
+    margin-bottom: #{$spacing-lg};
+    text-align: center;
+  }
+
+  &__price {
+    text-align: center;
+    margin-bottom: #{$spacing-lg};
+  }
+
+  &__currency {
+    font-size: #{$font-xl};
+    vertical-align: top;
+    color: #{$medium-gray};
+  }
+
+  &__amount {
+    font-size: #{$font-5xl};
+    font-weight: 700;
+    color: #{$primary-blue};
+  }
+
+  &__period {
+    color: #{$medium-gray};
+  }
+
+  &__price-custom {
+    font-size: #{$font-3xl};
+    font-weight: 700;
+    color: #{$primary-blue};
+  }
+
+  &__description {
+    text-align: center;
+    color: #{$medium-gray};
+    margin-bottom: #{$spacing-xl};
+  }
+
+  &__features-list {
+    list-style: none;
+    margin-bottom: #{$spacing-2xl};
+  }
+
+  &__feature {
+    display: flex;
+    align-items: flex-start;
+    gap: #{$spacing-sm};
+    margin-bottom: #{$spacing-md};
+  }
+
+  &__check {
+    color: #{$success-green};
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  &__cta {
+    width: 100%;
+  }
+}

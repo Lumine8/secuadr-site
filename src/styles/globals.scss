@@ -1,0 +1,171 @@
+// Import variables at the top
+@import "./variables.scss";
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
+
+// Reset and base styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 14px; // Mobile-first base
+
+  @media (min-width: $tablet) {
+    font-size: 16px; // Scale up for tablet+
+  }
+}
+
+body {
+  font-family: $font-primary;
+  font-size: $font-base;
+  line-height: 1.5;
+  color: $dark-gray;
+  background-color: $white;
+  padding-top: 60px; // Mobile header height
+
+  @media (min-width: $tablet) {
+    line-height: 1.6;
+    padding-top: 80px; // Desktop header height
+  }
+}
+
+// Mobile-first typography
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: $spacing-md;
+  color: $primary-blue;
+}
+
+h1 {
+  font-size: $font-4xl; // 30px mobile
+
+  @media (min-width: $tablet) {
+    font-size: $font-5xl; // 48px tablet+
+  }
+}
+
+h2 {
+  font-size: $font-3xl; // 24px mobile
+
+  @media (min-width: $tablet) {
+    font-size: $font-4xl; // 36px tablet+
+  }
+}
+
+h3 {
+  font-size: $font-2xl; // 20px mobile
+
+  @media (min-width: $tablet) {
+    font-size: $font-3xl; // 30px tablet+
+  }
+}
+
+p {
+  margin-bottom: $spacing-md;
+  color: $medium-gray;
+}
+
+// Mobile-first utilities
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 $spacing-md; // Smaller mobile padding
+
+  @media (min-width: $tablet) {
+    padding: 0 $spacing-lg; // More padding on tablet+
+  }
+
+  @media (min-width: $desktop) {
+    max-width: $xl-desktop; // Constrain width on desktop
+  }
+}
+
+.section {
+  padding: $spacing-3xl 0; // Smaller mobile sections
+
+  @media (min-width: $tablet) {
+    padding: $spacing-4xl 0; // Larger on tablet+
+  }
+}
+
+// Mobile-first buttons
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-sm;
+  padding: $spacing-sm $spacing-lg; // Smaller mobile buttons
+  font-size: $font-sm;
+  font-weight: 500;
+  text-decoration: none;
+  border: 2px solid transparent;
+  border-radius: $radius-lg;
+  cursor: pointer;
+  transition: all $transition-fast;
+
+  @media (min-width: $tablet) {
+    padding: $spacing-md $spacing-xl; // Larger on tablet+
+    font-size: $font-base;
+  }
+
+  &-primary {
+    background-color: $accent-blue;
+    color: $white;
+
+    &:hover {
+      background-color: darken($accent-blue, 10%);
+      transform: translateY(-2px);
+    }
+  }
+
+  &-secondary {
+    background-color: transparent;
+    color: $accent-blue;
+    border-color: $accent-blue;
+
+    &:hover {
+      background-color: $accent-blue;
+      color: $white;
+    }
+  }
+
+  &-large {
+    padding: $spacing-md $spacing-xl; // Large mobile
+
+    @media (min-width: $tablet) {
+      padding: $spacing-lg $spacing-2xl; // Larger on tablet+
+      font-size: $font-lg;
+    }
+  }
+}
+
+// Mobile-first grid (single column default)
+.grid {
+  display: grid;
+  gap: $spacing-lg;
+  grid-template-columns: 1fr; // Single column on mobile
+
+  @media (min-width: $tablet) {
+    &.grid-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: $desktop) {
+    gap: $spacing-xl; // Larger gaps on desktop
+
+    &.grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+

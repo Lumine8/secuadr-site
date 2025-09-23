@@ -1,0 +1,365 @@
+// Import variables at the top
+@import "../../styles/variables.scss";
+
+.features {
+  background-color: #{$light-gray};
+  padding: #{$spacing-4xl} 0;
+
+  @media (min-width: #{$desktop}) {
+    padding: 5rem 0;
+  }
+
+  // Okta Partnership Highlight Section
+  &__partnership {
+    background: linear-gradient(
+      135deg,
+      #{$white} 0%,
+      rgba(49, 130, 206, 0.05) 100%
+    );
+    border-radius: #{$radius-2xl};
+    padding: #{$spacing-2xl};
+    margin-bottom: #{$spacing-4xl};
+    box-shadow: #{$shadow-lg};
+    border: 1px solid rgba(49, 130, 206, 0.1);
+    position: relative;
+    overflow: hidden;
+
+    @media (min-width: #{$tablet}) {
+      padding: #{$spacing-3xl};
+    }
+
+    // Add decorative gradient overlay
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #{$accent-blue}, #{$success-green});
+    }
+
+    .partnership__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: #{$spacing-sm};
+      background: linear-gradient(135deg, #{$accent-blue}, #{$success-green});
+      color: #{$white};
+      padding: #{$spacing-md} #{$spacing-lg};
+      border-radius: #{$radius-full};
+      font-size: #{$font-base};
+      font-weight: 700;
+      margin-bottom: #{$spacing-xl};
+      box-shadow: 0 4px 12px rgba(49, 130, 206, 0.3);
+
+      @media (min-width: #{$tablet}) {
+        font-size: #{$font-lg};
+        padding: #{$spacing-lg} #{$spacing-xl};
+      }
+    }
+
+    .partnership__title {
+      color: #{$primary-blue};
+      font-size: #{$font-3xl};
+      margin-bottom: #{$spacing-lg};
+      font-weight: 800;
+      text-align: center;
+
+      @media (min-width: #{$tablet}) {
+        font-size: #{$font-4xl};
+      }
+
+      @media (min-width: #{$desktop}) {
+        text-align: left;
+      }
+    }
+
+    .partnership__description {
+      color: #{$dark-gray};
+      font-size: #{$font-base};
+      line-height: 1.7;
+      margin-bottom: #{$spacing-2xl};
+      text-align: center;
+
+      @media (min-width: #{$tablet}) {
+        font-size: #{$font-lg};
+      }
+
+      @media (min-width: #{$desktop}) {
+        text-align: left;
+      }
+
+      strong {
+        color: #{$accent-blue};
+        font-weight: 700;
+      }
+    }
+
+    .partnership__benefits {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: #{$spacing-lg};
+
+      @media (min-width: #{$tablet}) {
+        grid-template-columns: repeat(3, 1fr);
+        gap: #{$spacing-xl};
+      }
+
+      .benefit__item {
+        display: flex;
+        align-items: center;
+        gap: #{$spacing-md};
+        background: rgba(255, 255, 255, 0.7);
+        padding: #{$spacing-lg};
+        border-radius: #{$radius-lg};
+        border: 1px solid rgba(49, 130, 206, 0.1);
+        transition: all #{$transition-normal};
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.9);
+          transform: translateY(-2px);
+          box-shadow: #{$shadow-md};
+        }
+
+        svg {
+          color: #{$success-green};
+          flex-shrink: 0;
+        }
+
+        span {
+          color: #{$dark-gray};
+          font-size: #{$font-sm};
+          font-weight: 600;
+
+          @media (min-width: #{$tablet}) {
+            font-size: #{$font-base};
+          }
+        }
+      }
+    }
+  }
+
+  // Main Features Header
+  &__header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto #{$spacing-3xl};
+
+    @media (min-width: #{$tablet}) {
+      margin: 0 auto #{$spacing-4xl};
+    }
+  }
+
+  &__title {
+    margin-bottom: #{$spacing-lg};
+    color: #{$primary-blue};
+    font-size: #{$font-3xl};
+    font-weight: 800;
+
+    @media (min-width: #{$tablet}) {
+      font-size: #{$font-4xl};
+    }
+  }
+
+  &__subtitle {
+    font-size: #{$font-lg}; // Mobile
+    color: #{$medium-gray};
+    line-height: 1.6;
+
+    @media (min-width: #{$tablet}) {
+      font-size: #{$font-xl}; // Larger on tablet+
+    }
+  }
+
+  // Features Grid
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr; // Mobile: single column
+    gap: #{$spacing-lg};
+
+    @media (min-width: #{$tablet}) {
+      grid-template-columns: repeat(2, 1fr); // Tablet: 2 columns
+      gap: #{$spacing-xl};
+    }
+
+    @media (min-width: #{$desktop}) {
+      grid-template-columns: repeat(3, 1fr); // Desktop: 3 columns
+    }
+  }
+
+  &__card {
+    background-color: #{$white};
+    padding: #{$spacing-xl}; // Mobile
+    border-radius: #{$radius-xl};
+    text-align: center;
+    transition: all #{$transition-normal};
+    border: 2px solid transparent;
+    box-shadow: #{$shadow-sm};
+
+    @media (min-width: #{$tablet}) {
+      padding: #{$spacing-2xl}; // Tablet+
+    }
+
+    &:hover {
+      transform: translateY(-8px);
+      box-shadow: #{$shadow-xl};
+      border-color: rgba(49, 130, 206, 0.1);
+    }
+
+    // Staggered animation
+    &:nth-child(1) {
+      animation: slideInUp 0.6s ease-out 0.1s both;
+    }
+    &:nth-child(2) {
+      animation: slideInUp 0.6s ease-out 0.2s both;
+    }
+    &:nth-child(3) {
+      animation: slideInUp 0.6s ease-out 0.3s both;
+    }
+    &:nth-child(4) {
+      animation: slideInUp 0.6s ease-out 0.4s both;
+    }
+    &:nth-child(5) {
+      animation: slideInUp 0.6s ease-out 0.5s both;
+    }
+    &:nth-child(6) {
+      animation: slideInUp 0.6s ease-out 0.6s both;
+    }
+  }
+
+  &__icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #{$accent-blue}, #{$success-green});
+    color: #{$white};
+    border-radius: #{$radius-2xl};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto #{$spacing-lg};
+    transition: all #{$transition-normal};
+
+    @media (min-width: #{$tablet}) {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto #{$spacing-xl};
+    }
+  }
+
+  &__card-title {
+    font-size: #{$font-xl}; // Mobile
+    margin-bottom: #{$spacing-md};
+    color: #{$primary-blue};
+    font-weight: 700;
+
+    @media (min-width: #{$tablet}) {
+      font-size: #{$font-2xl}; // Tablet+
+    }
+  }
+
+  &__card-description {
+    color: #{$medium-gray};
+    line-height: 1.6;
+    font-size: #{$font-sm}; // Mobile
+    margin: 0;
+
+    @media (min-width: #{$tablet}) {
+      font-size: #{$font-base}; // Tablet+
+    }
+  }
+
+  // Partnership CTA Section
+  &__cta {
+    text-align: center;
+    margin-top: #{$spacing-4xl};
+    padding: #{$spacing-2xl};
+    background: #{$white};
+    border-radius: #{$radius-2xl};
+    box-shadow: #{$shadow-md};
+
+    @media (min-width: #{$tablet}) {
+      padding: #{$spacing-3xl};
+    }
+
+    h3 {
+      color: #{$primary-blue};
+      font-size: #{$font-2xl};
+      margin-bottom: #{$spacing-md};
+      font-weight: 700;
+
+      @media (min-width: #{$tablet}) {
+        font-size: #{$font-3xl};
+      }
+    }
+
+    p {
+      color: #{$medium-gray};
+      font-size: #{$font-lg};
+      margin-bottom: #{$spacing-2xl};
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+
+      @media (min-width: #{$tablet}) {
+        font-size: #{$font-xl};
+      }
+    }
+
+    .cta__buttons {
+      display: flex;
+      flex-direction: column;
+      gap: #{$spacing-lg};
+      align-items: center;
+
+      @media (min-width: #{$tablet}) {
+        flex-direction: row;
+        justify-content: center;
+      }
+
+      .btn {
+        min-width: 220px;
+      }
+    }
+  }
+
+  // Mobile optimizations
+  @media (max-width: #{$tablet}) {
+    padding: #{$spacing-3xl} 0;
+
+    &__partnership {
+      padding: #{$spacing-xl};
+      margin-bottom: #{$spacing-3xl};
+
+      .partnership__benefits {
+        gap: #{$spacing-md};
+
+        .benefit__item {
+          padding: #{$spacing-md};
+        }
+      }
+    }
+  }
+
+  // Animation keyframes
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  // Performance optimizations
+  @media (prefers-reduced-motion: reduce) {
+    .features__card {
+      animation: none !important;
+
+      &:hover {
+        transform: none;
+      }
+    }
+  }
+}

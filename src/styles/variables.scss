@@ -11,29 +11,30 @@ $success-green: #38a169;
 $warning-orange: #ed8936;
 
 // Typography
-$font-primary: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
-$font-secondary: 'JetBrains Mono', 'Fira Code', monospace;
+$font-primary: "Inter", "Segoe UI", -apple-system, BlinkMacSystemFont,
+  sans-serif;
+$font-secondary: "JetBrains Mono", "Fira Code", monospace;
 
 // Mobile-first font sizes (start small)
-$font-xs: 0.75rem;    // 12px
-$font-sm: 0.875rem;   // 14px
+$font-xs: 0.75rem; // 12px
+$font-sm: 0.875rem; // 14px
 $font-base: 0.875rem; // 14px (mobile base)
-$font-lg: 1rem;       // 16px
-$font-xl: 1.125rem;   // 18px
-$font-2xl: 1.25rem;   // 20px
-$font-3xl: 1.5rem;    // 24px (mobile h3)
-$font-4xl: 1.875rem;  // 30px (mobile h2)
-$font-5xl: 2.25rem;   // 36px (mobile h1)
+$font-lg: 1rem; // 16px
+$font-xl: 1.125rem; // 18px
+$font-2xl: 1.25rem; // 20px
+$font-3xl: 1.5rem; // 24px (mobile h3)
+$font-4xl: 1.875rem; // 30px (mobile h2)
+$font-5xl: 2.25rem; // 36px (mobile h1)
 
 // Mobile-first spacing (smaller by default)
-$spacing-xs: 0.25rem;   // 4px
-$spacing-sm: 0.5rem;    // 8px
-$spacing-md: 0.75rem;   // 12px (mobile default)
-$spacing-lg: 1rem;      // 16px
-$spacing-xl: 1.5rem;    // 24px
-$spacing-2xl: 2rem;     // 32px
-$spacing-3xl: 2.5rem;   // 40px (mobile sections)
-$spacing-4xl: 3rem;     // 48px
+$spacing-xs: 0.25rem; // 4px
+$spacing-sm: 0.5rem; // 8px
+$spacing-md: 0.75rem; // 12px (mobile default)
+$spacing-lg: 1rem; // 16px
+$spacing-xl: 1.5rem; // 24px
+$spacing-2xl: 2rem; // 32px
+$spacing-3xl: 2.5rem; // 40px (mobile sections)
+$spacing-4xl: 3rem; // 48px
 
 // MOBILE-FIRST BREAKPOINTS (min-width)
 $mobile: 480px;

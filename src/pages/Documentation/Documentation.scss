@@ -1,0 +1,539 @@
+// Import variables at the top
+@import "../../styles/variables.scss";
+
+.documentation {
+  // Modern hero with gradient and better visual impact
+  .docs__hero {
+    background: linear-gradient(
+      135deg,
+      #{$primary-blue} 0%,
+      #{$accent-blue} 50%,
+      #{$success-green} 100%
+    );
+    color: #{$white};
+    padding: #{$spacing-4xl} 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+
+    @media (min-width: #{$desktop}) {
+      padding: 6rem 0;
+    }
+
+    // Add animated background elements
+    &::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 300px;
+      height: 300px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      animation: float 8s ease-in-out infinite;
+
+      @media (min-width: #{$desktop}) {
+        width: 500px;
+        height: 500px;
+      }
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -30%;
+      left: -10%;
+      width: 200px;
+      height: 200px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 50%;
+      animation: float 6s ease-in-out infinite reverse;
+
+      @media (min-width: #{$desktop}) {
+        width: 400px;
+        height: 400px;
+      }
+    }
+
+    h1 {
+      font-size: #{$font-4xl};
+      margin-bottom: #{$spacing-lg};
+      font-weight: 800;
+      position: relative;
+      z-index: 1;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+      @media (min-width: #{$tablet}) {
+        font-size: #{$font-5xl};
+      }
+
+      @media (min-width: #{$desktop}) {
+        font-size: 4rem;
+      }
+    }
+  }
+
+  .docs__subtitle {
+    font-size: #{$font-lg};
+    opacity: 0.95;
+    max-width: 100%;
+    margin: 0 auto;
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+
+    @media (min-width: #{$tablet}) {
+      font-size: #{$font-xl};
+      max-width: 700px;
+    }
+  }
+
+  .docs__content {
+    padding: #{$spacing-4xl} 0;
+    background: linear-gradient(to bottom, #{$white} 0%, #{$light-gray} 100%);
+
+    @media (min-width: #{$desktop}) {
+      padding: 5rem 0;
+    }
+  }
+
+  .docs__section {
+    max-width: 1000px;
+    margin: 0 auto #{$spacing-4xl};
+    padding: 0 #{$spacing-lg};
+    background-color: #{$white};
+    border-radius: #{$radius-2xl};
+    box-shadow: #{$shadow-lg};
+    border: 1px solid rgba(160, 174, 192, 0.1);
+    overflow: hidden;
+    position: relative;
+
+    @media (min-width: #{$tablet}) {
+      padding: 0 #{$spacing-2xl};
+    }
+
+    // Add subtle top border accent
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #{$accent-blue}, #{$success-green});
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    // Section content padding
+    > * {
+      padding-left: #{$spacing-xl};
+      padding-right: #{$spacing-xl};
+
+      @media (min-width: #{$tablet}) {
+        padding-left: #{$spacing-2xl};
+        padding-right: #{$spacing-2xl};
+      }
+    }
+
+    > *:first-child {
+      padding-top: #{$spacing-2xl};
+    }
+
+    > *:last-child {
+      padding-bottom: #{$spacing-2xl};
+    }
+
+    h2 {
+      color: #{$primary-blue};
+      font-size: #{$font-3xl};
+      margin-bottom: #{$spacing-xl};
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: #{$spacing-md};
+
+      @media (min-width: #{$tablet}) {
+        font-size: #{$font-4xl};
+      }
+
+      // Add icon before each section title
+      &::before {
+        content: "📚";
+        font-size: #{$font-2xl};
+      }
+    }
+
+    h3 {
+      color: #{$secondary-blue};
+      font-size: #{$font-2xl};
+      margin: #{$spacing-2xl} 0 #{$spacing-lg} 0;
+      font-weight: 600;
+      position: relative;
+      padding-left: #{$spacing-lg};
+
+      @media (min-width: #{$tablet}) {
+        font-size: #{$font-3xl};
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 4px;
+        height: 24px;
+        background: linear-gradient(
+          to bottom,
+          #{$accent-blue},
+          #{$success-green}
+        );
+        border-radius: #{$radius-full};
+      }
+    }
+
+    h4 {
+      color: #{$dark-gray};
+      font-size: #{$font-xl};
+      margin: #{$spacing-xl} 0 #{$spacing-md} 0;
+      font-weight: 600;
+
+      @media (min-width: #{$tablet}) {
+        font-size: #{$font-2xl};
+      }
+    }
+
+    p {
+      color: #{$dark-gray};
+      font-size: #{$font-base};
+      line-height: 1.7;
+      margin-bottom: #{$spacing-lg};
+
+      @media (min-width: #{$tablet}) {
+        font-size: #{$font-lg};
+        line-height: 1.8;
+      }
+    }
+
+    ul {
+      margin-bottom: #{$spacing-xl};
+      padding-left: 0;
+      list-style: none;
+
+      li {
+        color: #{$dark-gray};
+        font-size: #{$font-base};
+        line-height: 1.6;
+        margin-bottom: #{$spacing-md};
+        padding-left: #{$spacing-xl};
+        position: relative;
+
+        @media (min-width: #{$tablet}) {
+          font-size: #{$font-lg};
+        }
+
+        &::before {
+          content: "✦";
+          position: absolute;
+          left: 0;
+          top: 0;
+          color: #{$accent-blue};
+          font-size: #{$font-lg};
+        }
+
+        a {
+          color: #{$accent-blue};
+          text-decoration: none;
+          font-weight: 600;
+          border-bottom: 1px solid transparent;
+          transition: all #{$transition-fast};
+
+          &:hover {
+            color: #{$success-green};
+            border-bottom-color: #{$success-green};
+          }
+        }
+      }
+    }
+  }
+
+  // Modern code blocks with better styling
+  .docs__code {
+    background: linear-gradient(135deg, #{$dark-gray} 0%, #2a3441 100%);
+    color: #e2e8f0;
+    padding: #{$spacing-xl};
+    border-radius: #{$radius-xl};
+    font-family: #{$font-secondary};
+    font-size: #{$font-sm};
+    line-height: 1.6;
+    overflow-x: auto;
+    margin: #{$spacing-xl} 0;
+    position: relative;
+    border: 1px solid rgba(49, 130, 206, 0.2);
+    box-shadow: #{$shadow-md};
+
+    @media (min-width: #{$tablet}) {
+      padding: #{$spacing-2xl};
+      font-size: #{$font-base};
+    }
+
+    // Add copy button styling
+    &::before {
+      content: "📋";
+      position: absolute;
+      top: #{$spacing-md};
+      right: #{$spacing-md};
+      background: rgba(255, 255, 255, 0.1);
+      padding: #{$spacing-sm};
+      border-radius: #{$radius-md};
+      font-size: #{$font-sm};
+      cursor: pointer;
+      transition: all #{$transition-fast};
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+    }
+
+    // Syntax highlighting
+    .keyword {
+      color: #7c3aed;
+      font-weight: 600;
+    }
+
+    .string {
+      color: #{$success-green};
+    }
+
+    .comment {
+      color: #64748b;
+      font-style: italic;
+    }
+
+    .number {
+      color: #f59e0b;
+    }
+  }
+
+  // Enhanced API endpoint styling
+  .docs__api-endpoint {
+    background: linear-gradient(
+      135deg,
+      rgba(49, 130, 206, 0.1) 0%,
+      rgba(56, 161, 105, 0.1) 100%
+    );
+    color: #{$accent-blue};
+    padding: #{$spacing-lg} #{$spacing-xl};
+    border-radius: #{$radius-xl};
+    font-family: #{$font-secondary};
+    font-weight: 700;
+    font-size: #{$font-base};
+    margin: #{$spacing-xl} 0;
+    border: 2px solid rgba(49, 130, 206, 0.2);
+    position: relative;
+    overflow: hidden;
+
+    @media (min-width: #{$tablet}) {
+      font-size: #{$font-lg};
+      padding: #{$spacing-xl} #{$spacing-2xl};
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.1) 50%,
+        transparent 100%
+      );
+      animation: shimmer 3s ease-in-out infinite;
+    }
+
+    code {
+      background: none;
+      color: inherit;
+      padding: 0;
+      font-size: inherit;
+      font-weight: inherit;
+    }
+  }
+
+  // Modern table styling
+  .docs__table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: #{$spacing-xl} 0;
+    background-color: #{$white};
+    border-radius: #{$radius-xl};
+    overflow: hidden;
+    box-shadow: #{$shadow-lg};
+    border: 1px solid rgba(160, 174, 192, 0.1);
+
+    @media (max-width: #{$tablet}) {
+      display: block;
+      overflow-x: auto;
+    }
+
+    thead {
+      background: linear-gradient(
+        135deg,
+        #{$primary-blue} 0%,
+        #{$accent-blue} 100%
+      );
+      color: #{$white};
+
+      th {
+        padding: #{$spacing-lg};
+        text-align: left;
+        font-weight: 700;
+        font-size: #{$font-base};
+        letter-spacing: 0.5px;
+
+        @media (min-width: #{$tablet}) {
+          padding: #{$spacing-xl};
+          font-size: #{$font-lg};
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        border-bottom: 1px solid rgba(160, 174, 192, 0.1);
+        transition: background-color #{$transition-fast};
+
+        &:hover {
+          background-color: rgba(49, 130, 206, 0.03);
+        }
+
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+
+      td {
+        padding: #{$spacing-lg};
+        color: #{$dark-gray};
+        font-size: #{$font-sm};
+        vertical-align: top;
+
+        @media (min-width: #{$tablet}) {
+          padding: #{$spacing-xl};
+          font-size: #{$font-base};
+        }
+
+        &:first-child {
+          font-family: #{$font-secondary};
+          font-weight: 700;
+          color: #{$accent-blue};
+          position: relative;
+          padding-left: #{$spacing-2xl};
+
+          &::before {
+            content: "▶";
+            position: absolute;
+            left: #{$spacing-md};
+            top: 50%;
+            transform: translateY(-50%);
+            color: #{$success-green};
+            font-size: #{$font-sm};
+          }
+        }
+
+        code {
+          background: linear-gradient(135deg, #{$light-gray}, #f8fafc);
+          color: #{$accent-blue};
+          padding: #{$spacing-xs} #{$spacing-sm};
+          border-radius: #{$radius-md};
+          font-family: #{$font-secondary};
+          font-size: #{$font-xs};
+          font-weight: 600;
+          border: 1px solid rgba(49, 130, 206, 0.1);
+
+          @media (min-width: #{$tablet}) {
+            font-size: #{$font-sm};
+            padding: #{$spacing-sm} #{$spacing-md};
+          }
+        }
+      }
+    }
+  }
+
+  // Mobile optimizations
+  @media (max-width: #{$tablet}) {
+    .docs__section {
+      margin: 0 #{$spacing-md} #{$spacing-2xl};
+      border-radius: #{$radius-xl};
+
+      h2 {
+        font-size: #{$font-2xl};
+      }
+
+      h3 {
+        font-size: #{$font-xl};
+      }
+
+      h4 {
+        font-size: #{$font-lg};
+      }
+    }
+
+    .docs__code {
+      font-size: #{$font-xs};
+      padding: #{$spacing-lg};
+      margin: #{$spacing-lg} 0;
+    }
+  }
+
+  // Animation keyframes
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-20px) rotate(5deg);
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  // Reduced motion support
+  @media (prefers-reduced-motion: reduce) {
+    .docs__hero::before,
+    .docs__hero::after,
+    .docs__api-endpoint::before {
+      animation: none;
+    }
+  }
+}
+
+// Enhanced inline code styling
+:not(pre) > code {
+  background: linear-gradient(
+    135deg,
+    rgba(49, 130, 206, 0.1),
+    rgba(56, 161, 105, 0.1)
+  );
+  color: #{$accent-blue};
+  padding: #{$spacing-xs} #{$spacing-sm};
+  border-radius: #{$radius-md};
+  font-family: #{$font-secondary};
+  font-size: 0.9em;
+  font-weight: 600;
+  border: 1px solid rgba(49, 130, 206, 0.2);
+}
